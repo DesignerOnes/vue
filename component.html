@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div>
+            <input type="text" v-model="todoValut"/>
+            <button v-on:click="btnButton">添加</button>
+        </div>
+       <todo-item 
+            v-bind:content="item" 
+            v-bind:index="index"
+            v-for="(item,index) in list"
+            @delete="itemDelete"
+       ></todo-item>
+    </div>
+
+    <script>
+
+        // Vue.component("TodoItem",{
+        //     props: ['content'],
+        //     template:"<li>{{this.content}} </li>"
+        // })
+
+        // 另一种组件都方式
+        var TodoItem = {
+            props: ['content','index'],
+            template:"<li v-on:click='itemClick'>{{content}}</li>",
+            methods: {
+                itemClick:function(){
+                    this.$emit("delete",this.index)
+                }
+            }
+        }
+
+       var root = new new Vue({
+           el:"#root",
+           components: {
+               TodoItem:TodoItem
+           },
+           data:{
+               todoValut:"",
+               list:[]
+           },
+           methods: {
+               btnButton:function(){
+                   this.list.push(this.todoValut)
+                   this.todoValut=""
+               },
+               itemDelete:function(index){
+                  this.list.splice(index,1)
+               }
+           }
+       })
+    </script>
+    
+</body>
+</html>   

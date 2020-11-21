@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div>
+            <input type="text" v-model="todoValut"/>
+            <button v-on:click="btnButton">添加</button>
+        </div>
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+       var root = new new Vue({
+           el:"#root",
+           data:{
+               todoValut:"",
+               list:[]
+           },
+           methods: {
+               btnButton:function(){
+                   this.list.push(this.todoValut)
+                   this.todoValut=""
+               }
+           }
+       })
+    </script>
+    
+</body>
+</html>   
