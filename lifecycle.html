@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的生命周期</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">www</div>
+
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            template:"<li>hello worlde</li>",
+            
+                beforeCreate () {
+                    console.log("beforCrate")
+                },
+                created () {
+                    console.log(this.$el);
+                    console.log("create");
+                },
+                beforeMount () {
+                    console.log(this.$el);
+                    console.log("beforeMount");
+                },
+                mounted () {
+                    console.log(this.$el);
+                    console.log("mounted");
+                },
+                beforeDestroy () {
+                    console.log("beforeDestroy");
+                },
+                destroyed () {
+                    console.log("destroy");
+                }
+            
+        })
+    </script>
+</body>
+</html>

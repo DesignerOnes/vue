@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <div :style="styleObj"
+             v-on:click="handle"
+        >hello</div>
+    </div>
+    
+    <script>
+        var vm=new new Vue({
+            el:"#app",
+            data:{
+                styleObj:{
+                    color:"black"
+                }
+            },
+            methods:{
+                handle:function(){
+                    this.styleObj.color = this.styleObj.color === "black"?"red":"black";
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

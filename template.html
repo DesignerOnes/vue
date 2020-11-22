@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版方式</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app"> 
+        <div>{{msg}}</div>
+        <div v-text="msg"></div>
+        <div v-html="msg + '哇哈哈'"></div>
+    </div>
+    
+
+    <script>
+        var name = new Vue({
+            el:"#app",
+            data: {
+               msg:"<h1>temp</h1>"
+            }
+        });
+    </script>
+</body>
+</html>
